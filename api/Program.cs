@@ -16,6 +16,7 @@ var users = new List<User>()
     new User("Other User", Guid.NewGuid()),
 };
 
+app.MapGet("/", () => "Hello World!");
 app.MapGet("/userAccounts", () => users); // this ist the /url used in client for fetch()
 app.MapPost("/userAccount", (UserCreationRequest userRequest) => { // ASSUMES the JS file is POSTing properly; C# auto-deserializes JSON body into C# obj
     var newUser = new User(userRequest.UserName, Guid.NewGuid());
